@@ -1,0 +1,107 @@
+<form class="container" [formGroup]="formData!">
+    
+    <div class="row">
+        <div class="input-container">
+            <label for="fname">First Name</label>
+            <input type="text" placeholder="John" id="fname" formControlName="fname" name="fname">
+            <div class="error-messages" *ngIf="formData?.get('fname')?.invalid && (formData?.get('fname')?.touched || formData?.get('fname')?.dirty )">
+                <p *ngIf="formData?.get('fname')?.errors?.['required']">This field is required</p>
+                <p *ngIf="formData?.get('fname')?.errors?.['maxlength']">Maximum length is 5</p>
+                <p *ngIf="formData?.get('fname')?.errors?.['minlength']">Minimum length is 5</p>
+            </div>
+        </div>
+        <div class="input-container">
+            <label for="lname">Last Name</label>
+            <input type="text" placeholder="John" id="lname" name="lname" formControlName="lname">
+            <div class="error-messages" *ngIf="formData?.get('lname')?.invalid && (formData?.get('lname')?.touched || formData?.get('lname')?.dirty )">
+                <p *ngIf="formData?.get('lname')?.errors?.['maxlength']">Maximum length is 10</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-container">
+            <label for="age">Age</label>
+            <input type="number" placeholder="12" id="age" name="age" formControlName="age">
+            <div class="error-messages" *ngIf="formData?.get('age')?.invalid && (formData?.get('age')?.touched || formData?.get('age')?.dirty )">
+                <p *ngIf="formData?.get('age')?.errors?.['required']">This field is required</p>
+                <p *ngIf="formData?.get('age')?.errors?.['max']">Maximum age is 20</p>
+                <p *ngIf="formData?.get('age')?.errors?.['min']">Minimum age is 10</p>
+            </div>
+        </div>
+        <div class="input-container">
+            <label for="email">Work Email</label>
+            <input type="text" placeholder="Johnsmith@email.com" id="email" name="email" formControlName="email">
+            <div class="error-messages" *ngIf="formData?.get('email')?.invalid && (formData?.get('email')?.touched || formData?.get('email')?.dirty )">
+                <p *ngIf="formData?.get('email')?.errors?.['required']">This field is required</p>
+                <p *ngIf="formData?.get('email')?.errors?.['pattern']">Invalid email format</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-container">
+            <label for="phone">Phone Number</label>
+            <input type="text" placeholder="000 000 0000" id="phone" name="phone" formControlName="phone">
+            <div class="error-messages" *ngIf="formData?.get('phone')?.invalid && (formData?.get('phone')?.touched || formData?.get('phone')?.dirty )">
+                <p *ngIf="formData?.get('phone')?.errors?.['required']">This field is required</p>
+                <p *ngIf="formData?.get('phone')?.errors?.['pattern']">Invalid phone number, should only contain numbers</p>
+                <p *ngIf="formData?.get('phone')?.errors?.['maxlength']">Maximum length is 10</p>
+                <p *ngIf="formData?.get('phone')?.errors?.['minlength']">Minimum length is 10</p>
+            </div>
+        </div>
+        <div class="input-container">
+            <label for="city">City <span class="light">(Optional)</span></label>
+            <select name="city" id="city" [name]="'city'" formControlName="city" >
+                <option value="mumbai">Mumbai</option>
+                <option value="kolkata">Kolkata</option>
+                <option value="delhi">Delhi</option>
+            </select>
+            <div class="error-messages" *ngIf="formData?.get('city')?.invalid && (formData?.get('city')?.touched || formData?.get('city')?.dirty )">
+                <p *ngIf="formData?.get('city')?.errors?.['invalidCity']">This city is unavailable</p>
+            </div>
+        </div>
+    </div>
+    <div class="gender-row">
+        <label for="age">Gender</label>
+        <div class="row radio-main-row">
+            <div class="radio-container row">
+                <input type="radio" id="male" name="gender" formControlName="gender" value="male">
+                <label for="male">Male</label>
+            </div>
+            <div class="radio-container row">
+                <input type="radio" id="female" name="gender" formControlName="gender" value="female">
+                <label for="female">Male</label>
+            </div>
+            <div class="radio-container row">
+                <input type="radio" name="gender" id="others" formControlName="gender" value="others">
+                <label for="others">Others</label>
+            </div>
+        </div>
+        <div class="error-messages" *ngIf="formData?.get('gender')?.invalid && (formData?.get('gender')?.touched || formData?.get('gender')?.dirty )">
+            <p *ngIf="formData?.get('gender')?.errors?.['required']">This field is required</p>
+        </div>
+    </div>
+    <div class="row border-b">
+        <div class="input-container">
+            <label for="password">Password</label>
+            <input type="password" placeholder="password" id="password" name="password" formControlName="password">
+            <div class="error-messages" *ngIf="formData?.get('password')?.invalid && (formData?.get('password')?.touched || formData?.get('password')?.dirty )">
+                <p *ngIf="formData?.get('password')?.errors?.['required']">This field is required</p>
+            </div>
+        </div>
+        <div class="input-container">
+            <label for="password">Confirm Password</label>
+            <input type="password" placeholder="password" id="email" name="repassword" formControlName="repassword">
+            <div class="error-messages" *ngIf="formData?.get('repassword')?.invalid && (formData?.get('repassword')?.touched || formData?.get('repassword')?.dirty )">
+                <p *ngIf="formData?.get('repassword')?.errors?.['required']">This field is required</p>
+                <p *ngIf="formData?.get('repassword')?.errors?.['passMisMatch']">Password didn't match!</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="radio-container row">
+            <input type="checkbox" name="tac" id="tac">
+            <label for="tac">Agree with terms and conditions</label>
+        </div>
+        <button class="">Submit</button>
+    </div>
+</form>

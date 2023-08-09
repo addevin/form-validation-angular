@@ -1,0 +1,66 @@
+:host{
+    background-color: rgb(237, 237, 237);
+    width: 100%;
+    min-height: 100vh;
+    display: block;
+}
+.container{
+    width: 620px;
+    margin: auto;
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.input-container{
+    width: 300px;
+}
+.input-container label{
+    font-size: 13px;
+    font-weight: 700;
+    color: rgb(87, 87, 87);
+}
+.input-container input, .input-container select{
+    border: 2px solid rgb(79, 79, 79);
+    flex: 1;
+    border-radius: 4px;
+    padding: 7px 6px;
+    display: block;
+    width: 288px;
+}
+.input-container input:focus{
+    border: 2px solid rgb(79, 79, 79);
+    outline: 3px solid rgb(187, 185, 185);
+}
+.row{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+span.light{
+    color: rgb(157, 157, 157);
+    font-weight: 400;
+}
+.error-messages p{
+    color: red;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+}
+.radio-container{
+    width: auto;
+}
+.radio-main-row{
+    justify-content: space-around;
+}
+.gender-row{
+    width: 100%;
+    border-bottom: 2px dotted gray;
+}
+.border-b{
+    border-bottom: 2px dotted gray;
+    padding-bottom: 10px;
+}
